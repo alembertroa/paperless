@@ -97,24 +97,34 @@
       	<div class="blanco">
          	<div class="w80">
 				<div class="tCenter">Identifica a tu cliente deslizando su <strong>Tarjeta Azteca,</strong> tecleando su <strong>CURP</strong> o su <strong>NSS</strong></div>
-			  <div class="divGrow">
+		<form id="postTransactions">
+    	  
+        <div class="divGrow">
 				<div class=" w60">
 				  <div class="divGrow">
-					<div class="col2 w60"><input type="text" placeholder="Número de Tarjeta Azteca"></div>
-					<div class="col2 w30"><input type="text" placeholder="CVV"></div>
-					<div class="col2 w60"><input type="text" placeholder="Monto a retirar"></div>
+					<div class="col2 w60"><input id="account" type="text" placeholder="Número de Tarjeta Azteca"></div>
+					<div class="col2 w30"><input id="transaction_type" type="text" placeholder="CVV"></div>
+					<div class="col2 w60"><input id="amount" type="text" placeholder="Monto"></div>
+          <div class="col2 w60"><input id="description" type="text" placeholder="Concepto"></div>
 				  </div>
 				</div>
-				<div class=" w30"><a href="#" class="btnA">Deslizar tarjeta</a> </div>
+				
 				</div>
 		  	</div>
           </div>
 
 			<div class="btnCenter">
-			  <a href="#" class="btnA btnG">Limpiar</a>
-			  <a href="" class="btnA modalAviso_view" ng-click="setTab(2)">Siguiente</a>
+			  <!--a href="#" class="btnA btnG">Limpiar</a>
+			  <a href="#" class="btnA modalAviso_view" ng-click="setTab(2)">Siguiente</a-->
+        <input class="btnA modalAviso_view" type="submit" value="Siguiente">
+        <a href="#" ng-click="setTab(2)"></a>
+
+        
 			</div>
-		</div>
+
+    </form>
+		
+    </div>
     </div>
 	
    <div ng-show="isSet(2)">
@@ -197,5 +207,56 @@
 <script type="text/javascript">
 
       $('#modalAviso').modal('show');
+
+
+      document.getElementById('postTransactions').addEventListener('submit', postTransactions);
+
+      function postTransactions(event) {
+        event.preventDefault();
+
+            let acount = document.getElementById('acount').value;
+            let transaction_type = document.getElementById('transaction_type').value;
+            let amount = document.getElementById('amount').value;
+            let description = document.getElementById('description').value;
+
+            fetch('http://localhost:3000/transactions', {
+                method: 'POST',
+                mode: 'cors',
+                headers : new Headers({
+                  "Access-Control-Allow-Origin": "*",
+                  "Access-Control-Allow-Headers": "*",
+                  //"Content-Type": "text/plain",
+                  //"Content-Length": content.length.toString(),
+                  //"X-Custom-Header": "ProcessThisImmediately",
+                }),
+                body:JSON.stringify({acount:acount, transaction_type:transaction_type, amount:amount, description:description})
+            }).then((res) => res.json())
+            .then((data) =>  console.log(data))
+            .catch((err)=>console.log(err))
+      }
+
+      document.getElementById('postTickets').addEventListener('submit', postTickets);
+
+      function postTickets(event) {
+        event.preventDefault();
+
+            let operation_id = document.getElementById('operation_id').value;
+            let operation_type = document.getElementById('operation_type').value;
+            
+            fetch('http://localhost:3000/tickets', {
+                method: 'POST',
+                mode: 'cors',
+                headers : new Headers({
+                  "Access-Control-Allow-Origin": "*",
+                  "Access-Control-Allow-Headers": "*",
+                  //"Content-Type": "text/plain",
+                  //"Content-Length": content.length.toString(),
+                  //"X-Custom-Header": "ProcessThisImmediately",
+                }),
+                body:JSON.stringify({operation_id:operation_id, operation_type:operation_type})
+            }).then((res) => res.json())
+            .then((data) =>  console.log(data))
+            .catch((err)=>console.log(err))
+      }
 
 </script>
