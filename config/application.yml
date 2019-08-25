@@ -1,4 +1,0 @@
-twilio:
-  url: url
-  from: whatsapp:+1421312312313
-  authToken: token
