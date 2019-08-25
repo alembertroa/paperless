@@ -1,8 +1,9 @@
 twilio:
-  url: d
-  from: d
-  account: d
-  authToken: d
+  url: ${TWILIO_URL}
+  fromWhats: ${TWILIO_FROM_WHATS}
+  fromSMS: ${TWILIO_FROM_SMS}
+  account: ${TWILIO_ACCOUNT}
+  authToken: ${TWILIO_AUTH_TOKEN}
 email:
-  key: d
-  account: test@email.com
+  key: ${EMAIL_KEY}
+  account: ${EMAIL_ACCOUNT} 

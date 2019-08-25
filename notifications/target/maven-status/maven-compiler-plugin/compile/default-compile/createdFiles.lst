@@ -1,5 +1,0 @@
-mx/com/magios/paperless/converters/TwilioConverter.class
-mx/com/magios/paperless/utils/PaperlessConstants.class
-mx/com/magios/paperless/Application.class
-mx/com/magios/paperless/services/PushService.class
-mx/com/magios/paperless/controllers/PushController.class

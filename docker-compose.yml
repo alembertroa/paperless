@@ -1,0 +1,36 @@
+version: "3"
+services:
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+  notification_api:
+    build:
+      context: ./
+      dockerfile: Dockerfile.notification.api
+    image: notification_api:latest
+    depends_on:
+      - mongo
+    ports:
+      - "8080:8080"
+    env_file:
+      - notification-variables.env
+  bank_api:
+    build:
+      context: ./
+      dockerfile: Dockerfile.bank.api
+    image: bank_api:latest
+    depends_on:
+      - mongo
+    ports:
+      - "3000:3000"
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile.web
+    image: web:latest
+    depends_on:
+      - notification_api
+      - bank_api
+    ports:
+      - "80:80"

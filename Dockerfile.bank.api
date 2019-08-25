@@ -1,0 +1,14 @@
+FROM node
+
+RUN apt-get update
+
+RUN apt-get install -y supervisor
+
+COPY supervisor.conf /docker/supervisor.conf
+COPY supervisord.conf /docker
+
+COPY transactions /api/transactions
+
+WORKDIR /docker
+
+CMD ["/usr/bin/supervisord", "-c", "/docker/supervisord.conf"]
