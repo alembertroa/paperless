@@ -3,3 +3,6 @@ twilio:
   from: d
   account: d
   authToken: d
+email:
+  key: d
+  account: test@email.com
