@@ -5,14 +5,27 @@ import lombok.Setter;
 
 import java.io.Serializable;
 
+
+/**
+ * <p>Bean to handle all the request of the project</p>
+ *
+ * @author Cristian Alanis {@literal <snake404@gmail.com>}
+ * @since 1.0.0
+ */
 @Getter
 @Setter
 public class PushRequest implements Serializable{
 
     private static final long serialVersionUID = -2252770703338727900L;
 
+    /**
+     * <p>The destination of the notification</p>
+     */
     private String to;
 
+    /**
+     * <p>The desired message that you want to send</p>
+     */
     private String message;
 
 }
