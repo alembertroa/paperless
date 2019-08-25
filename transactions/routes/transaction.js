@@ -6,6 +6,7 @@ var router = express.Router();
 router.post('/', function(req, res, next) {
 
     console.log(req.body);
+    transaction.create(req.body);
     var payload = {};
     payload.id = 2;
     payload.tickek_id = 100;
