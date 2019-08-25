@@ -1,0 +1,8 @@
+FROM openjdk
+
+COPY notifications/target/Paperless.jar /api/Paperless.jar
+COPY notifications/config/application.yml /api/application.yml
+
+RUN cat /api/application.yml
+
+ENTRYPOINT ["java", "-Dspring.config.location=/api/application.yml", "-jar", "/api/Paperless.jar"]

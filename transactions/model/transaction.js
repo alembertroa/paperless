@@ -10,5 +10,5 @@ var orderSchema =  new Schema({
 	ticket_id: Number
 }); 
 
-mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true});
+mongoose.connect('mongodb://mongo:27017/test', {useNewUrlParser: true});
 module.exports = mongoose.model('Transaction', orderSchema);
