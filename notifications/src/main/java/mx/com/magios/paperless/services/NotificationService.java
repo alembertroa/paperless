@@ -1,7 +1,5 @@
 package mx.com.magios.paperless.services;
 
-import mx.com.magios.paperless.beans.PushRequest;
-
 /**
  * <p>Interface with all the operations relationated with the notifications</p>
  *

@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 
+/**
+ * <p>Implementation of NotificationService</p>
+ * @author Cristian Alanis {@literal <snake404@gmail.com>}
+ * @since 1.0.0
+ */
 @Service
 public class NotificationServiceImpl implements NotificationService{
 

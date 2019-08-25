@@ -6,7 +6,7 @@ import lombok.Setter;
 /**
  * <p>Generic exception for this project</p>
  *
- * @author Cristian Alanis {@literal <snake404@gmail.com.mx>}
+ * @author Cristian Alanis {@literal <snake404@gmail.com>}
  * @since 1.0.0
  */
 public class PaperlessException extends Exception{

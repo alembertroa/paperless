@@ -14,9 +14,7 @@ import java.io.Serializable;
  */
 @Getter
 @Setter
-public class PushRequest implements Serializable{
-
-    private static final long serialVersionUID = -2252770703338727900L;
+public class NotificationRequest{
 
     /**
      * <p>The destination of the notification</p>
